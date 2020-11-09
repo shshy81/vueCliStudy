@@ -19,6 +19,7 @@ export default {
         dynamicProp: {
             type: String,
             required: false,
+            default: 'default Title'
         }    
     } , 
     data() {

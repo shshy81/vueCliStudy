@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <NameChange/>
+    <NameChange stringProp="직접 전달" :dynamicProp="postDynamicValue"/><br>
+    <button @click="changeDynamicProp">changeDynamicProp</button>
   </div>
 </template>
 
@@ -15,6 +16,12 @@ export default {
   data() {
     return {
       title:'This is HomePage',
+      postDynamicValue: '동적 전달',
+    }
+  },
+  methods: {
+    changeDynamicProp() {
+      this.postDynamicValue= '동적 수정';
     }
   }
 }

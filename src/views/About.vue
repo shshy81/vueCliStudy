@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1> {{ title }}</h1>
-    <NameChange/>
+    <NameChange stringProp="About 직접전달"/>
   </div>
 </template>
 

@@ -6,27 +6,17 @@
         자식요소에서 props를 변경하면 안되서 input 요소의 value에 name 을 바인딩-->
         <h2>부모요소로 데이터 보내기 Emit</h2>
         <label for="">By Method</label>
-        <input type="text" :value="prop1" @input="updateName"/>        
-        <hr>
-        <label for="">Direct Event Send</label>
-        <input type="text" :value="prop2" @input="$emit('update-name2', $event)">
-        <hr>
-        
+        <input type="text" :value="goParentProp" @input="updateName"/>        
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        prop1 : {
+        goParentProp : {
             type: String,
-            required: false
+            required: true
         },
-        prop2 : {
-            type: String,
-            required: false
-        },
-        
     },
     methods: {
         updateName(e) {

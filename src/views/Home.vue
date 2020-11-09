@@ -1,29 +1,34 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <NameChange stringProp="직접 전달" :dynamicProp="postDynamicValue"/><br>
-    <button @click="changeDynamicProp">changeDynamicProp</button>
+    <h1>Home</h1>
+    <form action="">
+      <!-- @event이름 @click과 같이 생각하면 됨-->
+      <!-- <InputField v-bind:name="name" @update-name="updateName"/> -->
+      <InputField v-bind:name="name" @update-name="name = $event.target.value"/>
+      <br><br><button>Submit</button>
+    </form>
+    {{ name }}
   </div>
 </template>
 
 <script>
-import NameChange from '@/components/NameChange.vue';
+import InputField from '@/components/InputField.vue';
 
 export default {
   components: {
-    NameChange
+    InputField
   },
   data() {
     return {
-      title:'This is HomePage',
-      postDynamicValue: '동적 전달',
+      name: '',
     }
   },
-  methods: {
-    changeDynamicProp() {
-      this.postDynamicValue= '동적 수정';
-    }
-  }
+  // methods: {
+  //   // 자식요소에서 넘겨준 값이 인자로 들어감
+  //   updateName(name) {
+  //     this.name = name;
+  //   }
+  // }
 }
 </script>
 
